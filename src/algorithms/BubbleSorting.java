@@ -1,27 +1,27 @@
-public class InsertSorting {
+package algorithms;
+
+public class BubbleSorting {
     public static void main(String[] args) {
         int[] array = {5, 3, 8, 2, 1, 4}; // Example array to be sorted
 
         System.out.println("Array before sorting:");
         printArray(array);
 
-        insertSort(array);
+        bubbleSort(array);
 
         System.out.println("\nArray after sorting:");
         printArray(array);
     }
 
-    public static void insertSort(int[] arr) {
-        for(int i = 1; i < arr.length; i++) {
-            var key = arr[i];
-            var j = i - 1;
-            while (j >= 0) {
-                if (key < arr[j]) {
-                    arr[j + 1] = arr[j];
-                    arr[j] = key;
+    // Bubble sort algorithm
+    public static void bubbleSort(int[] arr) {
+        for (var i = 0; i < arr.length; i++ ) {
+            for (var j = 1; j < arr.length - i; j++) {
+                if (arr[j - 1] > arr[j]) {
+                    var temp = arr[j];
+                    arr[j] = arr[j-1];
+                    arr[j-1] = temp;
                 }
-
-                j = j - 1;
             }
         }
     }
