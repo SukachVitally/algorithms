@@ -75,8 +75,8 @@ public class MeasureSpeedupDemo {
                 return total;
             } else {
                 long mid = (hi+lo)/2; // middle index for split
-                concurrency2.RecursiveSum left = new concurrency2.RecursiveSum(lo, mid);
-                concurrency2.RecursiveSum right = new concurrency2.RecursiveSum(mid+1, hi);
+                RecursiveSum left = new RecursiveSum(lo, mid);
+                RecursiveSum right = new RecursiveSum(mid+1, hi);
                 left.fork(); // forked thread computes left half
                 return right.compute() + left.join(); // current thread computes right half
             }
