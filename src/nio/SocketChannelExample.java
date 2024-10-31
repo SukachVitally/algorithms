@@ -36,6 +36,8 @@ public class SocketChannelExample {
                 boolean isConnected = socketChannel.isConnected();
                 System.out.println("Connected: " + isConnected);
                 ByteBuffer buffer = ByteBuffer.allocate(1024);
+                socketChannel.read(buffer);
+                buffer.flip();
                 byte[] bytes = new byte[buffer.remaining()];
                 buffer.get(bytes);
                 System.out.print("Server output: " + new String(bytes, StandardCharsets.UTF_8) + "\n");
